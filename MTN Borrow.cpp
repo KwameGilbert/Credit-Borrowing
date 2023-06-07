@@ -5,7 +5,7 @@ void begin();
 void listamount();
 
 int main() {
-    begin();
+  	begin();
     listamount();
     return 0;
 }
@@ -27,13 +27,18 @@ void begin() {
 }
 }
 
-void listamount(){
-	cout << "How much do you want to borrow?\n";
+
+void listamount() {
+    cout << "How much do you want to borrow?\n";
+
+    double amnt = 10.00;  // Start with the maximum borrowing amount
+
+    for (int num = 1; num <= 10; num++) {
+        if (amnt < 1.00) {
+            break;  // Exit the loop when the borrowing amount reaches 1
+        }
+        cout << num << ". GHC " << amnt << endl;
+        amnt--;  // Decrease the borrowing amount
+    }
+}
 	
-	for (int num = 1; num <= 8; num++) {
-        for (double amount = 10.00; amount >= 1; amount-=10) {
-            cout << num << ". GHS " << amount << endl;
-            break;
-            }
-   	}
-	}
