@@ -1,24 +1,23 @@
 #include <iostream>
 using namespace std;
 
+	int option, start, end, max_amnt, min_amnt, step, initial, men_step;
+ 	double loan, amnt, payable, interest;
+ 	string code;
+ 	
 void begin();
-void listamount();
+int listamount(int start, int end, int max_amnt, int min_amnt, int step);
 void chooseamount();
 void amountpayable();
+int menu(doub  le initial, double men_step); 
+int menuoption();
 
-	int option;
- 	double loan;
- 	string code;
- 	double amnt;
- 	double payable;
- 	double interest;
-
+	
+ 
 int main() {
-
   	begin();
-    listamount();
-    chooseamount();
-    amountpayable();
+	menu(8.00, 2.00);
+	menuoption();
     return 0;
 }
 
@@ -26,12 +25,12 @@ int main() {
 	
 void begin() {
 	for(;;){
-		cout << "Welcome to MTN Credit Borrow\n";
-    	cout << "Dial *506# to access menu: ";
+	
+    	cout << "Dial *506# to for MTN Extra Time ";
    		cin >> code;
    		
     	if (code == "*506#") {
-        	cout << "Menu accessed successfully.\n";
+        	cout << "Welcome to MTN Xtra Time\n";
         	break;
        } 
 	   else {
@@ -40,18 +39,30 @@ void begin() {
 }
 }
 
+menu(double initial, double men_step){
+	  cout << endl << "Please select an option: " << endl << endl;
+	  cout << "1."<<" GHS" << initial<< endl;
+	  cout << "2."<<" GHS" << initial-men_step << endl;
+	  cout << "3. More advance options"<< endl;
+	  cout << "4. Request a data advance"<< endl;
+	  cout << "5. Menu"<< endl;
+	  
+}
 
-void listamount() {
-    cout << endl << "How much do you want to borrow?" << endl << endl;
-	
-    double amnt = 10.00;  // Start with the maximum borrowing amount
+menuoption(){
+	cin >> option;
+	if option==1;
+		
+}
 
-    for (int num = 1; num <= 10; num++) {
-        if (amnt < 1.00) {
+int listamount() {
+    double amnt = max_amnt;  // Start with the maximum borrowing amount
+    for (int num = start; num <= end; num++) {
+        if (amnt < min_amnt) {
             break;  // Exit the loop when the borrowing amount reaches 1
         }
         cout << num << ". GHC " << amnt << endl << endl;
-        amnt--;  // Decrease the borrowing amount
+        amnt-step ; // Decrease the borrowing amount
     }
     
 }
@@ -99,4 +110,5 @@ void amountpayable(){
 	cout << "You will pay GHS " << payable ;
 }
 
+*/
 	
