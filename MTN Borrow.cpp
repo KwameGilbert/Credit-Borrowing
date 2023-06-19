@@ -1,8 +1,7 @@
 #include <iostream>
-/*#include <stdlib.h>*/
 using namespace std;
 
-int option, dataoption, start, end, confirmation;
+int option, dataoption, start, end, confirmation, menu5option;
 double loan, amnt, payable, interest,  max_amnt, min_amnt, step, initial, men_step;
 string code;
  	
@@ -15,6 +14,7 @@ void listamount(int start, int end, int max_amnt, int min_amnt, int step);
 void listdata();
 void data_payable(double bundle, double loan);
 void data_option();
+void menu5();
 
 int main() {
   	begin();
@@ -63,7 +63,7 @@ void menuoption(){
 		listdata();
 	}
 	else if(option==5){
-		/*othermenu();*/
+		menu5();
 	}
 }
 
@@ -84,8 +84,7 @@ void listamount(int start, int end, int initial, int min_amnt, int step) {
         amnt=amnt-step ; // Decrease the borrowing amount
         }
     }
-   	cin >> loan;
-   	amountpayable(loan);
+   	chooseamount();
 }
 
 void listdata(){
@@ -132,7 +131,7 @@ void data_payable(double bundle,double loan){
 	}
 	else if(confirmation==2){
 		cout << "Canceled";
-			break;
+		
 	}
 	else {
 		cout << "Please choose the right option";
@@ -143,36 +142,33 @@ void data_payable(double bundle,double loan){
 void chooseamount(){
  	cin >> option;
  	if (option==1){
- 		loan=10.00;
+ 		loan=8.00;
 	 }
 	else if(option==2){
-	 	loan=9.00;
-	 }
-	else if(option==3){
-	 	loan=8.00;
-	 }
-	else if(option==4){
 	 	loan=7.00;
 	 }
-	else if(option==5){
+	else if(option==3){
 	 	loan=6.00;
 	 }
-	else if(option==6){
+	else if(option==4){
 	 	loan=5.00;
 	 }
+	else if(option==5){
+	 	loan=4.00;
+	 }
+	else if(option==6){
+	 	loan=3.00;
+	 }
 	else if(option==7){
-		loan=4.00;
-	 }
-	else if(option==8){
-		loan=3.00;
-	 }
-	else if(option==9){
 		loan=2.00;
 	 }
-	else if(option==10){
+	else if(option==8){
 		loan=1.00;
 	 }
-	 cout<< endl << "You are borrowing GHS " << loan << endl << endl;
+	else if(option==9){
+		loan=0.50;
+	 }
+	 amountpayable(loan);
 }
   
 void amountpayable(double loan){
@@ -188,7 +184,7 @@ void amountpayable(double loan){
 		cout << "You have succefully borrowed " << loan << "GHC" << endl;
 	}
 	else if(confirmation==2){
-			break;
+			cout << "Canceled";
 	}
 	else {
 		cout << "Please choose the right option ";
@@ -196,4 +192,27 @@ void amountpayable(double loan){
 	}
 }
 
+void menu5(){
+	cout << "MTN Xtra Time \n";
+	cout << "Please select an option \n";
+	cout << "1: Status \n";
+	cout << "2: Info \n";
+	cout << "3: Outstanding Credit \n";
+	cout << "4: History \n";
+	cin >> menu5option;
+	
+	if(menu5option==1){
+		cout << "Y'ello. You are eligible for XtraTime Service. \n You can dail *506# and request an airtime or data \n advance anytime";
+	}
+	else if(menu5option==2){
+		cout << "Y''ello. \n If you are elgible for XtraTime service, you can \n request an airtime or data advance when your \n balance runs low. Just dail *506#.";
+	}
+	else if(menu5option==3){
+		cout << "Y'ello \n Your pending credit for MTN XtraTime is" << loan << "GHS";
+	}
+	else if(menu5option==4){
+		
+	}
+	
+}
 	
